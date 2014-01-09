@@ -9,23 +9,23 @@ var makeStack = function() {
 };
 
   // Use an object with numeric keys to store values
-  var stackMethods = {};
+var stackMethods = {};
 
 stackMethods.push = function(value){
     this.storage[this.size1]= value;
     this.size1++;
     // console.log(storage, this.storage)
-  };
+};
 
 stackMethods.pop = function(){
-    if (this.size1){
-      this.size1--;
-      var result = this.storage[this.size1];
-      delete this.storage[this.size1];
-      return result;
-    }
-  };
+  if (this.size1){
+    this.size1--;
+    var result = this.storage[this.size1];
+    delete this.storage[this.size1];
+    return result;
+  }
+};
 
-  stackMethods.size = function(){
-    return this.size1;
-  };
+stackMethods.size = function(){
+  return this.size1;
+};
