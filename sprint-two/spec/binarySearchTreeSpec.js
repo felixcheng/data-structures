@@ -29,13 +29,15 @@ describe("binarySearchTree", function() {
     assert.isTrue(binarySearchTree.contains(7));
     assert.isFalse(binarySearchTree.contains(8));
   });
-  
+
   it("should execute a callback on every value in a tree using 'depthFirstLog'", function(){
     var array = [];
-    var func = function(value){ array.push(value); }
-    binarySearchTree.insert(2);
+    var func = function(value){ array.push(value); };
+    binarySearchTree.insert(5);
     binarySearchTree.insert(3);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(7);
     binarySearchTree.depthFirstLog(func);
-    assert.notStrictEqual(array, [5,2,3]);
+    assert.notStrictEqual(array, [5, 3, 2, 7]);
   });
 });

@@ -13,15 +13,19 @@
 
 var makeLimitedArray = function(limit){
   var storage = [];
-
   var limitedArray = {};
+
   limitedArray.get = function(index){
     checkLimit(index);
     return storage[index];
   };
+
   limitedArray.set = function(index, value){
     checkLimit(index);
     storage[index] = value;
+    // console.log("storage", storage);
+    // console.log('Limited',limitedArray);
+
   };
   limitedArray.each = function(callback){
     for(var i = 0; i < storage.length; i++){
@@ -33,7 +37,6 @@ var makeLimitedArray = function(limit){
     if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
     if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }
   };
-
   return limitedArray;
 };
 
