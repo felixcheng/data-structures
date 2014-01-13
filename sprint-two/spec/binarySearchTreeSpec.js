@@ -40,4 +40,15 @@ describe("binarySearchTree", function() {
     binarySearchTree.depthFirstLog(func);
     assert.notStrictEqual(array, [5, 3, 2, 7]);
   });
+
+  it("should execute rebalancing'", function(){
+    var array = [];
+    var func = function(value){ array.push(value); };
+    binarySearchTree.insert(5);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(7);
+    binarySearchTree.rebalance();
+    assert.notStrictEqual(array, [5, 3, 2, 7]);
+  });
 });
